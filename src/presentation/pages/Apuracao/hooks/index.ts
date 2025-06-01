@@ -1,0 +1,1 @@
+export { default as useCarregarEleicao } from './useCarregaEleicao'

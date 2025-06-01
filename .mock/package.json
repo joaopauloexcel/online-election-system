@@ -1,0 +1,16 @@
+{
+  "name": "mock-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "prism mock swagger.yaml",
+    "generate:types": "rm -rf src && openapi-generator-cli generate -i swagger.yaml -g typescript-nestjs -o ./src"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.15.0",
+    "@stoplight/prism-cli": "^5.10.0"
+  }
+}
