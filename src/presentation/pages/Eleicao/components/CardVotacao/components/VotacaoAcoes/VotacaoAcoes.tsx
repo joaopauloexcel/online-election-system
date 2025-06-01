@@ -28,7 +28,6 @@ const VotacaoAcoes: React.FC<VotacaoAcoesProps> = ({
             variant="contained"
             onClick={finalizarEleicao}
             size="small"
-            sx={{ width: '136px' }}
         >
             Finalizar
         </ButtonAcoes>
@@ -37,7 +36,6 @@ const VotacaoAcoes: React.FC<VotacaoAcoesProps> = ({
             variant="outlined"
             onClick={toggleMostrarInvalidos}
             size="small"
-            sx={{ width: '160px' }}
         >
             {
                 mostrarInvalidos

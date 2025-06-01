@@ -59,7 +59,7 @@ const Apuracao: React.FC = () => {
                     {getLabelTotalVotos()}
                 </TypographyDisabledCustom>
             </BoxFlex>
-            <BoxCardsCandidato sx={{ justifyContent: { md: 'center', lg: 'flex-start' } }}>
+            <BoxCardsCandidato sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'flex-start' } }}>
                 {ranqueados.map((c) => (
                     <CardCandidato
                         key={c.id}

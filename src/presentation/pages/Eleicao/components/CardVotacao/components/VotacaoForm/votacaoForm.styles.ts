@@ -5,6 +5,7 @@ import { theme } from "@/presentation/theme";
 export const BoxFlexForm = styled(Box)`
     display: flex;
 `
+
 export const TextFieldCustom = styled(TextField)`
     flex: 1;
     margin: ${theme.spacing(2)} ${theme.spacing(0)};
@@ -16,9 +17,15 @@ export const BoxButtonForm = styled(Box)`
     top: ${theme.spacing(2)};
     margin-left: ${theme.spacing(2)};
 `
-export const AutocompleteForm = styled(Autocomplete)`
-    flex: 1;
-`
+
+export const AutocompleteForm = styled(Autocomplete)(({ theme }) => ({
+    flex: 1,
+    justifyContent: 'center',
+    [theme.breakpoints.down('md')]: {
+        flex: 3,
+        justifyContent: 'center',
+    },
+}));
 
 export const BoxEmpty = styled(Box)`
     flex: 1;

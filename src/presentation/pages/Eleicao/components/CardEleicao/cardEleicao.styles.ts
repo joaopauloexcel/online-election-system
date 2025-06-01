@@ -7,11 +7,13 @@ export const BoxCardEleicao = styled(Box)`
     display: flex;
     gap: ${theme.spacing(2)};
     justify-content: space-between;
+    flex-wrap: wrap;
 `
 
 export const BoxCardFlex = styled(Box)`
     display: flex;
     gap: ${theme.spacing(2)};
+    flex-wrap: wrap;
 `
 
 export const ButtonCustom = styled(Button)`

@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { GridRenderCellParams } from '@mui/x-data-grid';
 import { Add } from '@mui/icons-material';
 
 import { useEleicaoStore } from '@/presentation/store/eleicao/eleicao';
-import { CardDefault, DataGrid, MaskedTextField } from '@/presentation/components';
+import { CardDefault, DataGrid } from '@/presentation/components';
 import { TypographyTitleDisabled, TypographyCardTitle } from '@/presentation/components/Typography';
 import { getColumns } from './candidato.definitions';
-import { FormContainer, InputContainer, SubmitButton } from './candidato.styles';
+import { FormContainer, InputContainer, MaskedTextFieldCustom, SubmitButton } from './candidato.styles';
 
 const Candidato: React.FC = () => {
   const { candidatos, addCandidato, editarCandidato, excluirCandidato } = useEleicaoStore();
   const [nome, setNome] = useState('');
   const [editandoId, setEditandoId] = useState<string | null>(null);
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +43,8 @@ const Candidato: React.FC = () => {
     if (type === 'delete') excluirCandidato(params?.row?.id);
   };
 
+  const columns = getColumns(isSmallScreen ? 0.5 : 0.1, actionGridHandler)
+
   return (
     <CardDefault>
       <Box>
@@ -53,7 +57,7 @@ const Candidato: React.FC = () => {
       </Box>
       <FormContainer onSubmit={handleSubmit}>
         <InputContainer>
-          <MaskedTextField
+          <MaskedTextFieldCustom
             label="Nome do candidato"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
@@ -69,7 +73,7 @@ const Candidato: React.FC = () => {
       <DataGrid
         paperHeight="fit-content"
         getRowId={(row) => row.id}
-        columns={getColumns(actionGridHandler)}
+        columns={columns}
         rows={candidatos}
       />
     </CardDefault>

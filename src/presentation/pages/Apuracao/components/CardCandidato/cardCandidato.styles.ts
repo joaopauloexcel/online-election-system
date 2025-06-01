@@ -23,5 +23,5 @@ export const BoxWidth = styled(Box)`
 `
 
 export const BoxBlock = styled(Box)`
-    min-width: ${theme.spacing(31)};
+    min-width: ${theme.spacing(29)};
 `
