@@ -33,7 +33,7 @@ describe('VotacaoForm component', () => {
   it('should show button to add candidate if enabled and call handler on click', () => {
     render(<VotacaoForm {...defaultProps} />);
 
-    const button = screen.getByText('Cadastrar esse Candidato');
+    const button = screen.getByText('+ Cadastrar');
     expect(button).toBeInTheDocument();
 
     fireEvent.click(button);

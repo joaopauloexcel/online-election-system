@@ -33,7 +33,7 @@ const VotacaoForm: React.FC<VotacaoFormProps> = ({
                 ? (
                     <BoxButtonForm>
                         <ButtonAdd variant='contained' onClick={handleAddCandidato}>
-                            Cadastrar esse Candidato
+                            {'+ Cadastrar'}
                         </ButtonAdd>
                     </BoxButtonForm>
                 )

@@ -18,13 +18,6 @@ vi.mock('@/presentation/store/eleicao/eleicao', () => ({
 
 vi.mock('@/presentation/components', () => ({
   CardDefault: ({ children }: any) => <div>{children}</div>,
-  MaskedTextField: ({ value, onChange, label }: any) => (
-    <input
-      aria-label={label}
-      value={value}
-      onChange={onChange}
-    />
-  ),
 }));
 
 vi.mock('@/presentation/components/Typography', () => ({
@@ -36,6 +29,14 @@ vi.mock('./cardEleicao.styles', () => ({
   BoxCardFlex: ({ children }: any) => <div>{children}</div>,
   ButtonCustom: (props: any) => <button {...props}>{props.children}</button>,
   TypographyDisabledCustom: ({ children }: any) => <p>{children}</p>,
+  MaskedTextFieldCustom: ({ value, onChange, label }: any) => (
+    <input
+      aria-label={label}
+      value={value}
+      onChange={onChange}
+    />
+  ),
+  ButtonInitCustom: (props: any) => <button {...props}>{props.children}</button>,
 }));
 
 vi.mock('./cardEleicao.definitions', () => ({

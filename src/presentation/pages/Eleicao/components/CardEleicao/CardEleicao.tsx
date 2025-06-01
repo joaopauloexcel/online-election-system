@@ -1,11 +1,10 @@
-import { Button } from '@mui/material';
 import React, { useState } from 'react';
 
 import { useEleicaoStore } from '@/presentation/store/eleicao/eleicao';
-import { CardDefault, MaskedTextField } from '@/presentation/components';
+import { CardDefault } from '@/presentation/components';
 import { TypographyCardTitle } from '@/presentation/components/Typography';
 import { renderStatus } from './cardEleicao.definitions';
-import { BoxCardEleicao, BoxCardFlex, ButtonCustom, TypographyDisabledCustom } from './cardEleicao.styles';
+import { BoxCardEleicao, BoxCardFlex, ButtonCustom, ButtonInitCustom, MaskedTextFieldCustom, TypographyDisabledCustom } from './cardEleicao.styles';
 
 const CardEleicao: React.FC = () => {
   const { eleicao, iniciarEleicao, resetarEleicao, } = useEleicaoStore();
@@ -38,27 +37,24 @@ const CardEleicao: React.FC = () => {
         <TypographyCardTitle typeColor="primary">Minha Eleição</TypographyCardTitle>
         {!eleicao ? (
           <BoxCardFlex>
-            <MaskedTextField
+            <MaskedTextFieldCustom
               label='Título da eleição'
               value={titulo}
               onChange={(e) => setTitulo(e.target.value)}
-              sx={{ flex: 1 }}
             />
-            <MaskedTextField
+            <MaskedTextFieldCustom
               label='Número de vagas'
               maskType='number'
               value={`${vagas}`}
-              sx={{ flex: 1 }}
               onChange={(e) => setVagas(e.target.value ? Number(e.target.value) : 0)}
             />
-            <Button
-              sx={{ flex: 1 }}
+            <ButtonInitCustom
               onClick={handleIniciar}
               size="small"
               variant='contained'
               disabled={!vagas || !titulo}>
               Iniciar Eleição
-            </Button>
+            </ButtonInitCustom>
           </BoxCardFlex>
         ) : (
           <BoxCardEleicao>
